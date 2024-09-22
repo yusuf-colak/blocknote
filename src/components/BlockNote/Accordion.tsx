@@ -118,7 +118,6 @@ export const AccordionBlock = (props: {
             </AccordionTrigger>
             <AccordionContent className="h-auto ml-3">
               <Editor
-                pageId={undefined}
                 onChange={(value) => {
                   props.editor.updateBlock(props.block, {
                     props: {

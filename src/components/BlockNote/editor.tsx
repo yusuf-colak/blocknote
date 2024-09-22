@@ -29,19 +29,16 @@ interface EditorProps {
   editable?: boolean;
   className?: string;
   innerBlock?: boolean;
-  onChange?: any;
 }
 
 export default function Editor({
   initialContent,
   editable = true,
   className,
-  onChange = null,
 }: EditorProps) {
   const schema = BlockNoteSchema.create({
     blockSpecs: {
       ...defaultBlockSpecs,
-
       accordion: createAccordionBlockBlock("light"),
     },
   });
@@ -60,30 +57,15 @@ export default function Editor({
     schema,
   });
 
-  console.log(editor);
-
   const changePage = async () => {
-    const updatedBlocks = editor.topLevelBlocks;
-
-    editor.topLevelBlocks.forEach((block, index) => {
-      if (block.type === "heading") {
-        const blockContent = block.content[0] ?? null;
-        const id = blockContent?.text ? slugify(blockContent?.text) : block.id;
-
-        const existingIds = updatedBlocks.map((block) => block.id);
-
-        updatedBlocks[index].id =
-          id !== block.id && existingIds.includes(id) ? `${id}-${index}` : id;
-      }
-    });
-    onChange && onChange(updatedBlocks);
+    console.log("editor", editor.topLevelBlocks);
   };
 
   return (
     <BlockNoteView
       formattingToolbar={false}
       editable={editable}
-      className={cn(className)}
+      className={cn(className, "w-full")}
       editor={editor}
       onChange={changePage}
       slashMenu={false}
