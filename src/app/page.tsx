@@ -14,15 +14,13 @@ export default function App() {
       <a className="w-full mt-10" href="https://www.lipsum.com" target="_blank">
         <Button className="w-full ">LOREM TEXT</Button>
       </a>
-      <iframe
-        width="500"
-        height="300"
-        src="https://www.youtube.com/embed/TpF99SHncp0"
-        title="BlockNote Type Error"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
+      <a
+        className="w-full mt-10"
+        href="https://www.youtube.com/embed/TpF99SHncp0"
+        target="_blank"
+      >
+        <Button className="w-full ">VİDEO</Button>
+      </a>
       <Editor />
     </div>
   );
